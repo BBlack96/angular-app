@@ -4,7 +4,7 @@ describe("Dialog", ()=>{
   })
 
   it("check modal windows is displayed", ()=>{
-    const enterNameButtonLocator = "body > ngx-app:nth-child(2) > ngx-pages:nth-child(2) > ngx-one-column-layout:nth-child(1) > nb-layout:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > nb-layout-column:nth-child(1) > ngx-modal-overlays:nth-child(2) > ngx-dialog:nth-child(2) > div:nth-child(1) > div:nth-child(5) > nb-card:nth-child(1) > nb-card-body:nth-child(2) > button:nth-child(1)"
+    const enterNameButtonLocator = "div:nth-child(5) > nb-card > nb-card-body > button"
     const modalWindowLocator = "ngx-dialog-name-prompt[class='ng-star-inserted']"
     const modalWindowTitle = "ngx-dialog-name-prompt[class='ng-star-inserted'] nb-card nb-card-header"
     const inputLocator = "input[placeholder='Name']"
