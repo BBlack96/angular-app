@@ -77,14 +77,14 @@ export default class SmartTable{
     cy.get(".ng2-smart-action.ng2-smart-action-add-add.ng-star-inserted").click()
   }
 
-  isUserExist(value){
+  isUserExist(rowNumber, value) {
     cy.get("nb-card-body").within(() => {
-      cy.contains('tr', value).should('exist')
-    })
+      cy.get(`tbody > tr`).eq(rowNumber).should('exist', value);
+    });
   }
 
-  get editFirstUserButton(){
-    return cy.get('.nb-edit').eq(0)
+  editUser(line_number){
+    return cy.get('.nb-edit').eq(line_number-1)
   }
 
 }
