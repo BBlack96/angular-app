@@ -83,8 +83,8 @@ export default class SmartTable{
     });
   }
 
-  editUser(line_number){
-    return cy.get('.nb-edit').eq(line_number-1)
+  editUser(rowNumber){
+    return cy.get('.nb-edit').eq(rowNumber-1)
   }
 
 }
