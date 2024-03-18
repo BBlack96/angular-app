@@ -18,9 +18,14 @@ describe("Forms", () => {
     smartTable.clickCheckmark()
     smartTable.isUserExist("Xameleon")
     smartTable.editFirstUserButton.click()
-    smartTable.editUsername("Sauron")
+    smartTable.updateUser(999, "John", "Doe", "Sauron",
+      "test@gmail.com", 77)
     smartTable.clickCheckmark()
+    smartTable.isUserExist("John")
+    smartTable.isUserExist("Doe")
     smartTable.isUserExist("Sauron")
+    smartTable.isUserExist("test")
+    smartTable.isUserExist(77)
   })
 
 })
