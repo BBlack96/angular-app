@@ -1,21 +1,28 @@
 describe('API Tests', () => {
   const baseUrl = 'https://jsonplaceholder.typicode.com';
 
-  it('should get a post by id', () => {
+  it('should get a post by id and contain all necessary keys', () => {
     cy.request(`${baseUrl}/posts/1`).then(response => {
       expect(response.status).to.eq(200);
-      expect(response.body).to.have.property('userId');
-      expect(response.body).to.have.property('id');
-      expect(response.body).to.have.property('title');
-      expect(response.body).to.have.property('body');
+      expect(response.body.id).to.be.a('number');
+      expect(response.body.userId).to.be.a('number');
+      expect(response.body.title).to.be.a('string');
+      expect(response.body.body).to.be.a('string');
     });
   });
 
-  it('should get a list of posts', () => {
+  it('should get a list of posts and check if each object contains all keys', () => {
     cy.request(`${baseUrl}/posts`).then(response => {
       expect(response.status).to.eq(200);
       expect(response.body).to.be.an('array');
       expect(response.body.length).to.be.greaterThan(0);
+
+      response.body.forEach(post => {
+        expect(post).to.have.property('id');
+        expect(post).to.have.property('userId');
+        expect(post).to.have.property('title');
+        expect(post).to.have.property('body');
+      });
     });
   });
 
